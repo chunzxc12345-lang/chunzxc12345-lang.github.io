@@ -1,3 +1,130 @@
-<html>
-<h1>천현범 홈페이지</h1>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>여행, 그 설레는 시작</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans KR",Arial,sans-serif;color:#243b53;background:#f8fbfd;line-height:1.7}
+a{text-decoration:none;color:inherit}
+header{position:sticky;top:0;z-index:10;background:#fff;box-shadow:0 2px 12px #00000012}
+.nav{max-width:1200px;margin:auto;min-height:72px;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:22px;font-weight:800;color:#1769aa}.logo small{display:block;font-size:11px;color:#78909c;font-weight:400}
+.menu{display:flex;gap:24px;list-style:none;font-weight:600;font-size:14px}.menu a:hover{color:#1597d4}
+.hero{min-height:570px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:linear-gradient(#0879a877,#00507a66),url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=85") center/cover}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.2;text-shadow:0 3px 10px #0005}.hero p{font-size:19px;margin:20px 0 30px}
+.btn{display:inline-block;background:#fff;color:#1769aa;padding:12px 28px;border-radius:30px;font-weight:700;box-shadow:0 5px 20px #0002}.btn:hover{transform:translateY(-2px)}
+section{max-width:1200px;margin:auto;padding:75px 20px}.title{text-align:center;margin-bottom:40px}.title h2{font-size:32px}.title p{color:#78909c;margin-top:7px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 5px 20px #00000010;transition:.25s}.card:hover{transform:translateY(-6px)}
+.photo{height:180px;background-size:cover;background-position:center}.jeju{background-image:url("https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=800&q=80")}.japan{background-image:url("https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80")}.europe{background-image:url("https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=800&q=80")}.thai{background-image:url("https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80")}
+.card div:last-child{padding:20px}.card p{font-size:14px;color:#78909c;margin-top:5px}
+.music{background:#eef9fd;max-width:none}.music-inner{max-width:800px;margin:auto;padding:65px 20px;text-align:center}.music-box{background:#fff;border-radius:20px;padding:30px;box-shadow:0 5px 20px #00000010}.music-box h3{font-size:23px;margin-bottom:5px}.music-box p{color:#78909c;margin-bottom:20px}.music-box audio{width:100%}
+.tips{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.tip{background:#fff;border-radius:16px;padding:25px;text-align:center;box-shadow:0 4px 15px #0000000d}.tip-icon{font-size:38px}.tip h3{margin:8px 0}.tip p{font-size:14px;color:#78909c}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:30px}.story-box,.quote{border-radius:20px;padding:40px}.story-box{background:#fff;box-shadow:0 5px 20px #0000000d}.story-box h3{color:#1769aa;font-size:25px;margin-bottom:15px}.quote{background:#1769aa;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;font-size:23px}
+.about{background:#fff;max-width:none;text-align:center}.about-inner{max-width:800px;margin:auto}.about-inner p{color:#607d8b;margin-top:15px}
+.contact{text-align:center}.contact .btn{background:#1769aa;color:#fff}
+footer{background:#173b5e;color:#fff;text-align:center;padding:38px 20px}footer p{color:#b7c9d8;font-size:13px;margin-top:6px}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}.tips{grid-template-columns:repeat(2,1fr)}.story{grid-template-columns:1fr}.menu{gap:12px}}
+@media(max-width:600px){.nav{flex-direction:column}.menu{flex-wrap:wrap;justify-content:center;font-size:12px}.cards,.tips{grid-template-columns:1fr}.hero{min-height:500px}.hero p{font-size:16px}}
+</style>
+</head>
+<body>
+
+<header>
+<nav class="nav">
+  <div class="logo">✈️ 여행, 그 설레는 시작<small>다시 떠나는 나만의 여행 이야기</small></div>
+  <ul class="menu">
+    <li><a href="#home">홈</a></li>
+    <li><a href="#destination">여행지</a></li>
+    <li><a href="#music">음악</a></li>
+    <li><a href="#tips">여행준비</a></li>
+    <li><a href="#story">여행이야기</a></li>
+    <li><a href="#about">소개</a></li>
+  </ul>
+</nav>
+</header>
+
+<section class="hero" id="home">
+  <div>
+    <h1>여행은 언제나<br>좋은 선택입니다</h1>
+    <p>새로운 풍경, 새로운 사람, 그리고 새로운 나를 만나는 시간</p>
+    <a class="btn" href="#destination">여행지 둘러보기 →</a>
+  </div>
+</section>
+
+<section id="destination">
+  <div class="title"><h2>🌍 떠나고 싶은 여행지</h2><p>아름다운 곳에서 새로운 추억을 만들어보세요.</p></div>
+  <div class="cards">
+    <article class="card"><div class="photo jeju"></div><div><h3>🇰🇷 제주도</h3><p>푸른 바다와 아름다운 자연이 기다리는 힐링 여행</p></div></article>
+    <article class="card"><div class="photo japan"></div><div><h3>🇯🇵 일본</h3><p>맛있는 음식과 아름다운 풍경을 만나는 여행</p></div></article>
+    <article class="card"><div class="photo europe"></div><div><h3>🇫🇷 유럽</h3><p>역사와 예술이 살아있는 낭만적인 여행</p></div></article>
+    <article class="card"><div class="photo thai"></div><div><h3>🇹🇭 태국</h3><p>따뜻한 바다와 여유로운 휴식을 즐기는 여행</p></div></article>
+  </div>
+</section>
+
+<div class="music" id="music">
+  <div class="music-inner">
+    <div class="title"><h2>🎵 나만의 여행 음악</h2><p>AI로 만든 여행 노래를 홈페이지에서 들어보세요.</p></div>
+    <div class="music-box">
+      <h3>여행을 떠나요</h3>
+      <p>AI Travel Song</p>
+      <!-- Suno에서 다운로드한 MP3 파일 이름을 travel-song.mp3로 저장해
+           index.html과 같은 폴더에 넣으면 바로 재생됩니다. -->
+      <audio controls>
+        <source src="travel-song.mp3" type="audio/mpeg">
+        브라우저가 오디오 재생을 지원하지 않습니다.
+      </audio>
+      <p style="font-size:12px;margin-top:12px">※ 음악 파일은 index.html과 같은 폴더에 넣어주세요.</p>
+    </div>
+  </div>
+</div>
+
+<section id="tips">
+  <div class="title"><h2>✈️ 여행 준비 TIP</h2><p>출발 전에 꼭 확인해보세요.</p></div>
+  <div class="tips">
+    <div class="tip"><div class="tip-icon">🛂</div><h3>여권 & 비자</h3><p>여권 유효기간과 비자 필요 여부를 확인하세요.</p></div>
+    <div class="tip"><div class="tip-icon">🧳</div><h3>여행 가방</h3><p>필요한 물건만 챙겨 가볍게 여행하세요.</p></div>
+    <div class="tip"><div class="tip-icon">✈️</div><h3>항공권</h3><p>가격과 시간을 비교해 미리 예약하세요.</p></div>
+    <div class="tip"><div class="tip-icon">🏨</div><h3>숙소</h3><p>위치와 가격을 비교해 나에게 맞는 숙소를 찾아보세요.</p></div>
+    <div class="tip"><div class="tip-icon">🛡️</div><h3>여행자보험</h3><p>예상하지 못한 사고에 대비하세요.</p></div>
+    <div class="tip"><div class="tip-icon">📷</div><h3>사진</h3><p>여행의 소중한 순간을 사진으로 남겨보세요.</p></div>
+  </div>
+</section>
+
+<section id="story">
+  <div class="title"><h2>📝 나의 여행 이야기</h2><p>여행에서 만난 특별한 순간들을 기록합니다.</p></div>
+  <div class="story">
+    <div class="story-box">
+      <h3>여행을 떠나는 이유</h3>
+      <p>여행은 단순히 다른 장소로 이동하는 것이 아니라 새로운 나를 발견하는 시간입니다.</p>
+      <p>익숙한 일상에서 잠시 벗어나 아름다운 풍경을 바라보고, 맛있는 음식을 먹고, 새로운 사람들을 만나보세요.</p>
+      <p>그리고 여행에서 느낀 행복한 순간을 오래도록 기억해보세요.</p>
+    </div>
+    <div class="quote">“여행은 일상을 잠시 멈추고<br>나를 다시 만나는 시간입니다.”</div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="title"><h2>👩 홈페이지 소개</h2></div>
+    <h3>안녕하세요!</h3>
+    <p>여행을 좋아하는 사람들이 여행 정보를 나누고 추억을 기록하기 위한 개인 여행 홈페이지입니다.</p>
+    <p>앞으로 다녀온 여행지와 맛집, 숙소, 여행 준비 방법 등을 하나씩 기록해보려고 합니다.</p>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="title"><h2>💌 문의하기</h2><p>여행에 관한 이야기를 함께 나누고 싶다면 연락해주세요.</p></div>
+  <a class="btn" href="mailto:your@email.com">이메일 보내기</a>
+</section>
+
+<footer>
+  <h3>✈️ 여행, 그 설레는 시작</h3>
+  <p>다시 떠나는 나만의 여행 이야기</p>
+  <p>© 2026 Travel Story</p>
+</footer>
+
+</body>
 </html>
