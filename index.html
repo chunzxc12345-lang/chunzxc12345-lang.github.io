@@ -128,3 +128,21 @@ footer{background:#173b5e;color:#fff;text-align:center;padding:38px 20px}footer 
 
 </body>
 </html>
+
+<script>
+(()=>{
+ const style=document.createElement('style');
+ style.textContent=`.board-section{background:#eef9fd;max-width:none}.board-inner{max-width:1000px;margin:auto}.board-panel{background:#fff;border-radius:20px;padding:28px;box-shadow:0 5px 20px #00000010}.board-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}.board-form input,.board-form select,.board-form textarea{width:100%;padding:13px 15px;border:1px solid #d6e3eb;border-radius:10px;font:inherit;color:#243b53}.board-form textarea{grid-column:1/-1;min-height:120px;resize:vertical}.board-form button{justify-self:end;grid-column:1/-1;border:0;border-radius:30px;background:#1769aa;color:white;padding:12px 24px;font:inherit;font-weight:700;cursor:pointer}.board-note{color:#78909c;font-size:13px;margin:0 0 18px}.board-list{display:grid;gap:12px}.board-post{border:1px solid #e5edf2;border-radius:14px;padding:18px}.board-post h3{font-size:18px;margin:4px 0}.board-meta{color:#78909c;font-size:13px}.board-content{white-space:pre-wrap;margin-top:12px}.board-delete{float:right;border:0;background:transparent;color:#78909c;cursor:pointer}.board-empty{text-align:center;padding:30px;color:#78909c}@media(max-width:600px){.board-form{grid-template-columns:1fr}.board-form textarea,.board-form button{grid-column:1}.board-panel{padding:18px}}`;
+ document.head.append(style);
+ const nav=document.querySelector('.menu'); if(nav){const li=document.createElement('li');li.innerHTML='<a href="#board">게시판</a>';nav.append(li)}
+ const about=document.querySelector('#about');
+ const section=document.createElement('section');section.id='board';section.className='board-section';section.innerHTML=`<div class="board-inner"><div class="title"><h2>🗣️ 여행 이야기 게시판</h2><p>여행 질문과 추천, 나만의 여행 이야기를 나눠보세요.</p></div><div class="board-panel"><p class="board-note">게시글은 현재 사용 중인 브라우저에 저장됩니다. 다른 방문자와 공유되지는 않습니다.</p><form class="board-form" id="travel-board-form"><input name="author" maxlength="30" placeholder="작성자" aria-label="작성자" required><select name="category" aria-label="게시글 분류"><option>여행 질문</option><option>여행 추천</option><option>여행 후기</option><option>자유 이야기</option></select><input name="title" maxlength="80" placeholder="제목을 입력하세요" aria-label="제목" required><textarea name="content" maxlength="3000" placeholder="여행 이야기를 적어주세요" aria-label="내용" required></textarea><button type="submit">게시글 등록</button></form><div id="travel-board-list" class="board-list" aria-live="polite"></div></div></div>`;
+ if(about)about.parentNode.insertBefore(section,about);else document.body.append(section);
+ const key='travelStoryBoard_v1',form=document.getElementById('travel-board-form'),list=document.getElementById('travel-board-list');
+ const esc=s=>String(s).replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
+ function render(){let posts=[];try{posts=JSON.parse(localStorage.getItem(key)||'[]')}catch{};list.innerHTML=posts.length?posts.map(p=>`<article class="board-post"><button class="board-delete" type="button" data-id="${esc(p.id)}" aria-label="게시글 삭제">삭제</button><div class="board-meta">${esc(p.category)} · ${esc(p.author)} · ${esc(p.date)}</div><h3>${esc(p.title)}</h3><div class="board-content">${esc(p.content)}</div></article>`).join(''):'<div class="board-empty">첫 여행 이야기를 남겨보세요 ✈️</div>'}
+ form.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(form);let posts=[];try{posts=JSON.parse(localStorage.getItem(key)||'[]')}catch{};posts.unshift({id:Date.now().toString(),author:d.get('author').trim(),category:d.get('category'),title:d.get('title').trim(),content:d.get('content').trim(),date:new Date().toLocaleDateString('ko-KR')});try{localStorage.setItem(key,JSON.stringify(posts));form.reset();render()}catch{alert('브라우저 저장 공간을 사용할 수 없습니다.')}});
+ list.addEventListener('click',e=>{const b=e.target.closest('[data-id]');if(!b||!confirm('이 브라우저에 저장된 게시글을 삭제할까요?'))return;let posts=[];try{posts=JSON.parse(localStorage.getItem(key)||'[]')}catch{};localStorage.setItem(key,JSON.stringify(posts.filter(p=>p.id!==b.dataset.id)));render()});
+ render();
+})();
+</script>
